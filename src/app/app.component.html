@@ -1,0 +1,22 @@
+<form [formGroup]="form" (ngSubmit)="save()" fxLayoutGap="10px">
+  <mat-form-field>
+    <input matInput formControlName="firstName" placeholder="First Name" required>
+    <mat-error>Required</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="lastName" placeholder="Last Name" required>
+    <mat-error>Required</mat-error>
+  </mat-form-field>
+  <app-address formControlName="address"></app-address>
+  
+  <button mat-raised-button color="primary" type="submit">Touch Address Control</button>
+</form>
+<p>
+  {{ form.value | json }}
+</p>
+<p>
+  {{ form.get('address').valid }}
+  <br />
+  {{ form.get('address').errors | json }}
+  <br />
+</p>
